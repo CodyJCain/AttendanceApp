@@ -58,3 +58,14 @@ Route::get('/LocationClassList', [App\Http\Controllers\Location\LocationClassLis
 
 Route::get('/LocationDateList', [App\Http\Controllers\Location\LocationDateList::class, 'index'])->name('LocationDateListOut');
 Route::post('/LocationDateList', [App\Http\Controllers\Location\LocationDateList::class, 'index'])->name('LocationDateListIn');
+
+Route::get('/DisplayPasscode', [App\Http\Controllers\DisplayPasscode::class, 'index'])->name('DisplayPasscode');
+
+Route::get('/EnterPasscode', [App\Http\Controllers\EnterPasscode::class, 'index'])->name('EnterPasscode');
+//Route::post('/GPSController', [App\Http\Controllers\EnterPasscode::class, 'index'])->name('EnterPasscodeIn');
+
+Route::get('/PasscodeForwarder', [App\Http\Controllers\PasscodeForwarder::class, 'index'])->name('PasscodeForwarderOut');
+Route::post('/PasscodeForwarder', [App\Http\Controllers\PasscodeForwarder::class, 'index'])->name('PasscodeForwarder');
+
+Route::get('/VerifyPasscode', [App\Http\Controllers\VerifyPasscode::class, 'index'])->name('VerifyPasscodeOut');
+Route::post('/VerifyPasscode', [App\Http\Controllers\VerifyPasscode::class, 'index'])->name('VerifyPasscode');

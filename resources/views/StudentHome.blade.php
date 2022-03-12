@@ -28,16 +28,19 @@
     <input type="text" name="latitude" id="latitude" placeholder="Latitude">
     <input type="text" name="longitude" id="longitude" placeholder="Longitude">
     <input type="text" name="timestamp" id="timestamp" placeholder="Timestamp">
-    <input type="submit" value="send">
+    <input type="submit" value="send" class="btn btn-primary">
 </form>
 
 <form action="{{ route('AttendanceClassStudentIn') }}" method="post">
     {{ csrf_field() }}
-    <input type="text" name="code" id="code" placeholder="Code">
-    <input type="submit" value="send">
+    <input type="text" name="code" id="code" placeholder="Class Code">
+    <input type="submit" value="send" class="btn btn-primary">
 </form>
 
-<a href="{{route('AttendanceTotalStudent')}}" class="button btn-lg">View Attendance</a>
+<a href="{{route('AttendanceTotalStudent')}}" class="btn btn-primary">View Attendance</a>
+</br>
+</br>
+<a href="{{route('EnterPasscode')}}" class="btn btn-primary">Enter Passcode</a>
 
 <script>
 var x = document.getElementById("demo");

@@ -23,6 +23,9 @@
                     </br>
                     <a href="{{route('LocationClassList')}}" class="btn btn-primary">Change Class Location</a>
                     </br>
+                    </br>
+                    <a href="{{route('DisplayPasscode')}}" class="btn btn-primary">Display Passcode</a>
+                    </br>
                     </div>
                 </div>
             </div>
