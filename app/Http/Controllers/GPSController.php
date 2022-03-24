@@ -23,23 +23,25 @@ class GPSController extends Controller
 
         foreach($courses as $course){
             $classPeriod = DB::table('classes')->where('timeStart', '<', $timestamp)->where('timeEnd', '>', $timestamp)->where('course_id', '=', $course->course_id)->get();
-            $currentCourse = $course;
-        }
-
-        foreach($classPeriod as $class)
-        {
-        $latitudeMax = $class->latitude_max;
-        $latitudeMin = $class->latitude_min;
-        $longitudeMax = $class->longitude_max;
-        $longitudeMin = $class->longitude_min;
-        $class_id = $class->id;
+            if($classPeriod->count() != 0)
+            {
+                foreach($classPeriod as $class)
+                {
+                    $latitudeMax = $class->latitude_max;
+                    $latitudeMin = $class->latitude_min;
+                    $longitudeMax = $class->longitude_max;
+                    $longitudeMin = $class->longitude_min;
+                    $class_id = $class->id;
+                }
+                $currentCourse = $course;
+            }
         }
         
         if(isset($latitudeMax) && isset($latitudeMin) && isset($longitudeMax) && isset($longitudeMin))
         {
             if($latitude < $latitudeMax && $latitude > $latitudeMin && $longitude < $longitudeMax && $longitude > $longitudeMin)
             {
-                DB::table('attendance')->insert(['class_id' => $currentCourse->course_id, 'user_id' => $user->id, 'class_id' => $class_id, 'course_id' => $currentCourse->course_id, 'status' => 'Present', 'sign_date' => $timestamp]);
+                DB::table('attendance')->updateOrInsert(['class_id' => $currentCourse->course_id, 'user_id' => $user->id, 'class_id' => $class_id, 'course_id' => $currentCourse->course_id], ['status' => 'Present', 'sign_date' => $timestamp]);
                 return view('success');
             }
             else
