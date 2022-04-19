@@ -10,6 +10,7 @@ class SetLocation extends Controller
 {
     public function index(Request $request)
     {
+        $header = "Select a Location";
         $classID = $request->classID;
         $locationID = $request->locations;
         $locations = DB::table('locations')->where('id', '=', $locationID)->get();
@@ -17,6 +18,6 @@ class SetLocation extends Controller
         {
             DB::table('classes')->updateOrInsert(['id' => $classID], ['latitude_min' => $location->latitude_min, 'latitude_max' => $location->latitude_max, 'longitude_min' => $location->longitude_min, 'longitude_max' => $location->longitude_max]);
         }
-        return view('success');
+        return view('success', ['header'=>$header]);
         }
 }

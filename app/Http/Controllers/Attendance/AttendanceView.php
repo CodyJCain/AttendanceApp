@@ -15,6 +15,7 @@ class AttendanceView extends Controller
 
     public function index(Request $request)
     {
+        $header = "Attendance";
         $classID = $request->classID;
         $data = "<table><tr><th>Name</th><th>Status</th></tr>";
         $classes = DB::table('classes')->where('id', '=', $classID)->get();
@@ -44,6 +45,6 @@ class AttendanceView extends Controller
                 }
             }
         }
-        return view('attendance', ['data'=>$data]);
+        return view('attendance', ['data'=>$data, 'header'=>$header]);
     }
 }

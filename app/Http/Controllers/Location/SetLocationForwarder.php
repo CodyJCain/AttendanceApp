@@ -10,6 +10,7 @@ class SetLocationForwarder extends Controller
 {
     public function index(Request $request)
     {
+        $header = "Select a Location";
         $classID = $request->classID;
         $data = "";
 
@@ -19,6 +20,6 @@ class SetLocationForwarder extends Controller
         {
             $data .= "<option value=\"$location->id\">$location->name</option>";
         }
-        return view('location', ['data'=>$data, 'classID'=>$classID]);
+        return view('location', ['data'=>$data, 'classID'=>$classID, 'header'=>$header]);
     }
 }

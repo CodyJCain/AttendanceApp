@@ -15,6 +15,7 @@ class ProfessorCurrentClass extends Controller
 
     public function index(Request $request)
     {
+        $header = "Attendance";
         $user = auth()->user();
         $milliseconds = round(microtime(true) * 1000);
         $currentCourses = DB::table('classes')->where('timeStart', '<', $milliseconds)->where('timeEnd', '>', $milliseconds)->where('instructor_id', '=', $user->id)->get();
@@ -57,7 +58,7 @@ class ProfessorCurrentClass extends Controller
             }
         }
         //$data .= "<tr><td>Test</td><td>Entry</td></tr>";
-        return view('attendance', ['data'=>$data]);
+        return view('attendance', ['data'=>$data, 'header'=>$header]);
 
     }
 }

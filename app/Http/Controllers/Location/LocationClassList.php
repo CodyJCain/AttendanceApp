@@ -15,6 +15,7 @@ class LocationClassList extends Controller
 
     public function index(Request $request)
     {
+        $header = "Select a Class";
         $user = auth()->user();
 
         $data = "<table><tr><th>Class Name</th><th>Class Section</th></tr>";
@@ -27,6 +28,6 @@ class LocationClassList extends Controller
             $data .= "<tr><td>$class->name</td><td>$link</td></tr>";
         }
 
-        return view('attendance', ['data'=>$data]);
+        return view('attendance', ['data'=>$data, 'header'=>$header]);
     }
 }

@@ -14,6 +14,7 @@ class GPSController extends Controller
 
     public function index(Request $request){
 
+        $header = "GPS Check-in";
         $latitude = $request->latitude;
         $longitude = $request->longitude;
         $timestamp = $request->timestamp;
@@ -42,7 +43,7 @@ class GPSController extends Controller
             if($latitude < $latitudeMax && $latitude > $latitudeMin && $longitude < $longitudeMax && $longitude > $longitudeMin)
             {
                 DB::table('attendance')->updateOrInsert(['class_id' => $currentCourse->course_id, 'user_id' => $user->id, 'class_id' => $class_id, 'course_id' => $currentCourse->course_id], ['status' => 'Present', 'sign_date' => $timestamp]);
-                return view('success');
+                return view('success', ['header'=>$header]);
             }
             else
             {

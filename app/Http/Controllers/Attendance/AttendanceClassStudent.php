@@ -14,6 +14,7 @@ class AttendanceClassStudent extends Controller
     }
 
     public function index(Request $request){
+        $header = "Attendance";
         $classCode = $request->code;
         $user = auth()->user();
         $milliseconds = round(microtime(true) * 1000);
@@ -42,6 +43,6 @@ class AttendanceClassStudent extends Controller
                 $data .= "<tr><td>$class->class_date</td><td>$status</td></tr>";
             }
         }
-        return view('attendance', ['data'=>$data]);
+        return view('attendance', ['data'=>$data, 'header'=>$header]);
     }
 }

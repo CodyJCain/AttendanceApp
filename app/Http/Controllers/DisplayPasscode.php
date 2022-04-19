@@ -14,6 +14,7 @@ class DisplayPasscode extends Controller
 
     public function index(Request $request)
     {
+        $header = "Passcode";
         $user = auth()->user();
         $milliseconds = round(microtime(true) * 1000);
         $currentCourses = DB::table('classes')->where('timeStart', '<', $milliseconds)->where('timeEnd', '>', $milliseconds)->where('instructor_id', '=', $user->id)->get();
@@ -25,6 +26,6 @@ class DisplayPasscode extends Controller
                 $data = $passcode->passcode;
             }
         }
-        return view('attendance', ['data'=>$data]);
+        return view('attendance', ['data'=>$data, 'header'=>$header]);
     }
 }

@@ -14,6 +14,7 @@ class VerifyPasscode extends Controller
 
     public function index(Request $request)
     {
+        $header = "Passcode";
         $user = auth()->user();
         $studentID = $user->id;
         $passcode = $request->passcode;
@@ -41,7 +42,7 @@ class VerifyPasscode extends Controller
             if($passcode = $classPasscode)
             {
                 DB::table('attendance')-> updateOrInsert(['class_id' => $currentCourse->id, 'user_id' => $studentID, 'course_id' => $currentCourse->course_id], ['status' => 'Present']);
-                return view('success');
+                return view('success', ['header'=>$header]);
             }
             else
             {

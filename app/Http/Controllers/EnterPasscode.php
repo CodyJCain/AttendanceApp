@@ -8,6 +8,7 @@ class EnterPasscode extends Controller
 {
     public function index(Request $request)
     {
-        return view('EnterPasscode');
+        $header = "Passcode";
+        return view('EnterPasscode', ['header'=>$header]);
     }
 }

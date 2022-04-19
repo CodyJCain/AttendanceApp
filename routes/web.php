@@ -67,3 +67,10 @@ Route::post('/PasscodeForwarder', [App\Http\Controllers\PasscodeForwarder::class
 
 Route::get('/VerifyPasscode', [App\Http\Controllers\VerifyPasscode::class, 'index'])->name('VerifyPasscodeOut');
 Route::post('/VerifyPasscode', [App\Http\Controllers\VerifyPasscode::class, 'index'])->name('VerifyPasscode');
+
+Route::get('/AttendanceSelect', [App\Http\Controllers\Attendance\AttendanceProfessor::class, 'index'])->name('AttendanceSelect');
+
+Route::get('/AttendanceTotalClassSelect', [App\Http\Controllers\Attendance\AttendanceTotalClassSelector::class, 'index'])->name('AttendanceTotalClassSelect');
+
+Route::get('/AttendanceTotals', [App\Http\Controllers\Attendance\AttendanceTotalProfessor::class, 'index'])->name('AttendanceTotalProfessor');
+Route::post('/AttendanceTotals', [App\Http\Controllers\Attendance\AttendanceTotalProfessor::class, 'index'])->name('AttendanceTotals');

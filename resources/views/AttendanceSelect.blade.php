@@ -13,7 +13,14 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {!!$data!!}
+                    </br>
+
+                    <a href="{{route('ProfessorClassList')}}" class="btn btn-primary">View Individual Classes</a>
+                    </br>
+                    </br>
+                    <a href="{{route('AttendanceTotalClassSelect')}}" class="btn btn-primary">View Total Attendance</a>
+                    
+                    </div>
                 </div>
             </div>
         </div>

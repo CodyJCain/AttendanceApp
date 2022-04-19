@@ -15,6 +15,8 @@ class AttendanceTotalStudent extends Controller
 
     public function index(Request $request)
     {
+        $header = "Attendance";
+
         $user = auth()->user();
         
         $courses = DB::table('courses_users')->where('user_id', '=', $user->id)->get();
@@ -47,7 +49,7 @@ class AttendanceTotalStudent extends Controller
         }
         $data .= "</table>";
 
-        return view('attendance', ['data'=>$data, 'courseData'=>$courseData]);
+        return view('attendance', ['data'=>$data, 'courseData'=>$courseData, 'header'=>$header]);
     }
 
 }

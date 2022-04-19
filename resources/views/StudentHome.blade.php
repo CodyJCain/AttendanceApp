@@ -14,33 +14,27 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
-                    Student Home Successful
-
-                    <p>Click the button to get your coordinates.</p>
-
-<button onclick="getLocation()">Get Coordinates</button>
+                    
+<!--<button onclick="getLocation()">Get Coordinates</button>-->
 
 <p id="demo"></p>
 
 <form action="{{ route('GPSControllerIn') }}" method="post">
     {{ csrf_field() }}
-    <input type="text" name="latitude" id="latitude" placeholder="Latitude">
-    <input type="text" name="longitude" id="longitude" placeholder="Longitude">
-    <input type="text" name="timestamp" id="timestamp" placeholder="Timestamp">
-    <input type="submit" value="send" class="btn btn-primary">
+    <input type="hidden" name="latitude" id="latitude" value="33.4834319">
+    <input type="hidden" name="longitude" id="longitude" value="-81.6801946">
+    <input type="hidden" name="timestamp" id="timestamp" value="1650368880058">
+    <input type="submit" value="Check in to Class" class="btn btn-primary">
 </form>
 
-<form action="{{ route('AttendanceClassStudentIn') }}" method="post">
-    {{ csrf_field() }}
-    <input type="text" name="code" id="code" placeholder="Class Code">
-    <input type="submit" value="send" class="btn btn-primary">
-</form>
+</br>
+
+<a href="{{route('EnterPasscode')}}" class="btn btn-primary">Enter Passcode</a>
+
+</br>
+</br>
 
 <a href="{{route('AttendanceTotalStudent')}}" class="btn btn-primary">View Attendance</a>
-</br>
-</br>
-<a href="{{route('EnterPasscode')}}" class="btn btn-primary">Enter Passcode</a>
 
 <script>
 var x = document.getElementById("demo");

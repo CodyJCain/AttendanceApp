@@ -16,6 +16,7 @@ class ProfessorDateList extends Controller
 
     public function index(Request $request)
     {
+        $header = "Attendance";
         $user = auth()->user();
         $data = "<h3>Date</h3> </br>";
         $milliseconds = round(microtime(true) * 1000);
@@ -28,6 +29,6 @@ class ProfessorDateList extends Controller
             //$data .= "$class->class_date </br>";
         }
 
-        return view('attendance', ['data'=>$data]);
+        return view('attendance', ['data'=>$data, 'header'=>$header]);
     }
 }

@@ -18,7 +18,7 @@
                     <a href="{{route('ProfessorCurrentClass')}}" class="btn btn-primary">View Current Class</a>
                     </br>
                     </br>
-                    <a href="{{route('ProfessorClassList')}}" class="btn btn-primary">View Previous Classes</a>
+                    <a href="{{route('AttendanceSelect')}}" class="btn btn-primary">View Attendance</a>
                     </br>
                     </br>
                     <a href="{{route('LocationClassList')}}" class="btn btn-primary">Change Class Location</a>
